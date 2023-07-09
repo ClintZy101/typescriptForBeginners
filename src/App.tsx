@@ -1,9 +1,11 @@
 
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { Button } from './components/Button';
 import { Greet } from './components/Greet';
 import { Heading } from './components/Heading';
+import { Input } from './components/Input';
 import { Person } from './components/Person';
 import { PersonalMessage } from './components/PersonalMessage';
 import { PersonList } from './components/PersonList';
@@ -27,6 +29,10 @@ function App() {
   // const [status2, setStatus2] = useState<string>('success')
   const status = 'loading'
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    console.log('Click', event)
+  }
+
   return (
     <div className="App">
       <Greet name={greetData.name} messageCount={greetData.messageCount} isLoggedIn={greetData.isLoggedIn} />
@@ -39,6 +45,9 @@ function App() {
       <PersonalMessage>
         <Heading>I love You!</Heading>
       </PersonalMessage>
+
+      <Button handleClick={handleClick} />
+      <Input value="" handleChange={(event) => console.log('event',event)} />
     </div>
   );
 }
