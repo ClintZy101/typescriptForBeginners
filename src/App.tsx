@@ -1,9 +1,13 @@
 
 
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Button } from './components/Button';
 import { Container } from './components/Container';
+import { Box } from './components/context/Box';
+import { ThemeContextProvider } from './components/context/ThemeContext';
+import { User } from './components/context/User';
+import { UserContextProvider } from './components/context/UserContext';
 import { Counter } from './components/Counter';
 import { Greet } from './components/Greet';
 import { Heading } from './components/Heading';
@@ -12,7 +16,7 @@ import { Person } from './components/Person';
 import { PersonalMessage } from './components/PersonalMessage';
 import { PersonList } from './components/PersonList';
 import { Status } from './components/Status';
-import { namelist } from './data/data'
+import { namelist, userData } from './data/data'
 
 function App() {
   const greetData = {
@@ -50,9 +54,19 @@ function App() {
 
       <Button handleClick={handleClick} />
       <Input value="" handleChange={(event) => console.log('event', event)} />
-      <Container styles={{ border: '1px solid', padding: '1rem', margin: '20px', fontSize:'20px' }} />
-    <Counter />
-   </div>
+      <Container styles={{ border: '1px solid', padding: '1rem', margin: '20px', fontSize: '20px' }} />
+      <Counter />
+
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      
+      <UserContextProvider>
+        <User name={userData.name} email={userData.email} />
+      </UserContextProvider>
+
+
+    </div>
   );
 }
 

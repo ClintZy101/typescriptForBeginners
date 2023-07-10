@@ -16,3 +16,8 @@ export const namelist = [
         lastName: 'Taypoc'
     }
 ]
+
+export const userData = {
+    name: 'Clint',
+    email: 'clielizek.joy@gmail.com'
+}
