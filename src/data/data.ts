@@ -1,18 +1,18 @@
 export const namelist = [
     {
-        first: 'Eliezer',
-        last: 'Taypoc'
+        firstName: 'Eliezer',
+        lastName: 'Taypoc'
     },
     {
-        first: 'Ezekiel',
-        last: 'Taypoc'
+        firstName: 'Ezekiel',
+        lastName: 'Taypoc'
     },
     {
-        first: 'Gwen',
-        last: 'Taypoc'
+        firstName: 'Gwen',
+        lastName: 'Taypoc'
     },
     {
-        first: 'Zeph',
-        last: 'Taypoc'
+        firstName: 'Zeph',
+        lastName: 'Taypoc'
     }
 ]

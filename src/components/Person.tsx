@@ -4,7 +4,6 @@ type PersonProps = {
         firstName: string
         lastName: string
     }
-    
 }
 
 export const Person = ({name}: PersonProps) => {

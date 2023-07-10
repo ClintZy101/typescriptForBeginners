@@ -1,10 +1,8 @@
 import React from 'react'
+import { Name } from '../types/types'
 
 type PersonsListProps = {
-    names: {
-        first: string
-        last: string
-    }[]
+    names: Name[]
 }
 
 export const PersonList = (props: PersonsListProps) => {
@@ -14,7 +12,7 @@ export const PersonList = (props: PersonsListProps) => {
                 props.names.map((name, index) => {
                     return (
                         <h2 key={index}>
-                            {name.first} {name.last}
+                            {name.firstName} {name.lastName}
                         </h2>
                     )
                 })
