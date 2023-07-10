@@ -3,22 +3,32 @@ import { FC, useReducer } from "react"
 type CounterState = {
     count: number
 }
-
-type CounterAction = {
-    type: string
+// You can be more strict in order to avoid errors; use string literals
+type UpdateAction = {
+    type: 'increment' | 'decrement'
     payload: number
 }
 
+type ResetAction = {
+    type: 'reset'
+}
+
+type CounterAction = UpdateAction | ResetAction
+
+
 const initialState = { count: 0 }
+
 
 function reducer(state: CounterState, action: CounterAction) {
     switch (action.type) {
         case 'increment':
             return { count: state.count + action.payload }
         case 'decrement':
-            return { count: state.count - action.payload}
-            default:
-                return state
+            return { count: state.count - action.payload }
+        case 'reset':
+            return initialState
+        default:
+            return state
     }
 }
 
@@ -28,11 +38,14 @@ export const Counter: FC = () => {
     return (
         <div>
             Count: {state.count}
-            <button onClick={()=> dispatch({ type: 'increment', payload: 10 })}>
+            <button onClick={() => dispatch({ type: 'increment', payload: 10 })}>
                 Increment 10
             </button>
-            <button onClick={()=> dispatch({ type: 'decrement', payload: 10 })}>
+            <button onClick={() => dispatch({ type: 'decrement', payload: 10 })}>
                 Decrement 10
+            </button>
+            <button onClick={() => dispatch({ type: 'reset' })}>
+                Reset
             </button>
         </div>
     )
