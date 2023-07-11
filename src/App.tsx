@@ -2,9 +2,14 @@
 
 import React from 'react';
 import './App.css';
+import { Private } from './components/auth/Private';
+import { Profile } from './components/auth/Profile';
 import { Button } from './components/Button';
+import ClassCounter from './components/class/ClassCounter';
 import { Container } from './components/Container';
 import { Box } from './components/context/Box';
+import Family from './components/context/Family';
+import { FamilyContextProvider } from './components/context/FamilyNamesContext';
 import { ThemeContextProvider } from './components/context/ThemeContext';
 import { User } from './components/context/User';
 import { UserContextProvider } from './components/context/UserContext';
@@ -15,22 +20,14 @@ import { Input } from './components/Input';
 import { Person } from './components/Person';
 import { PersonalMessage } from './components/PersonalMessage';
 import { PersonList } from './components/PersonList';
+import { DomRef } from './components/ref/DomRef';
+import { MutableRef } from './components/ref/MutableRef';
 import { Status } from './components/Status';
-import { namelist, userData } from './data/data'
+import { greetData, namelist, personData, userData } from './data/data'
+
 
 function App() {
-  const greetData = {
-    name: 'Clint',
-    messageCount: 3,
-    isLoggedIn: false,
-  }
-
-  const personData = {
-    name: {
-      firstName: 'Clint',
-      lastName: 'Taypoc'
-    }
-  }
+ 
 
   // const [status2, setStatus2] = useState<string>('success')
   const status = 'loading'
@@ -60,12 +57,19 @@ function App() {
       <ThemeContextProvider>
         <Box />
       </ThemeContextProvider>
-      
+
       <UserContextProvider>
         <User name={userData.name} email={userData.email} />
       </UserContextProvider>
 
+      <FamilyContextProvider>
+        <Family />
+      </FamilyContextProvider>
 
+    <DomRef />
+    {/* <MutableRef /> */}
+    <ClassCounter message='The Count value is:' />
+    <Private isLoggedIn={true} component={Profile} />
     </div>
   );
 }

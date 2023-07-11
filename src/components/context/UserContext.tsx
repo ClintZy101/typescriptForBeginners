@@ -17,6 +17,12 @@ type UserContextProviderProps = {
 export const UserContext = createContext<UserContextType | null>({} as UserContextType)
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
-     const [user, setUser] = useState<AuthUser | null>(null)
-     return <UserContext.Provider value={{user, setUser}}>{children}</UserContext.Provider>
+    
+    const [user, setUser] = useState<AuthUser | null>(null)
+
+    return (
+        <UserContext.Provider value={{ user, setUser }}>
+            {children}
+        </UserContext.Provider>
+    )
 }

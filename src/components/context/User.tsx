@@ -1,21 +1,17 @@
 import React, { useContext } from 'react'
+import { UserDataType } from '../../types/types'
 import { UserContext } from './UserContext'
 
-type UserDataType = {
-    name: string
-    email: string
-}
+
 
 export const User = ({name, email}: UserDataType) => {
     const userContext = useContext(UserContext)
 
     const handleLogin = () => { 
-        if(userContext){
-            userContext.setUser({
+        userContext &&  userContext.setUser({
                 name: name,
                 email: email
             })
-        }
     }
 
     const handleLogout = () => {
@@ -23,6 +19,7 @@ export const User = ({name, email}: UserDataType) => {
             userContext.setUser(null)
         }
      }
+     
     return (
         <div>
             <button onClick={handleLogin}>Login</button>

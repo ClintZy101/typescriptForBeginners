@@ -10,6 +10,11 @@ export type Name = {
     lastName: string
 }
 
+export type UserDataType = {
+    name: string
+    email: string
+}
+
 export type PersonProps = {
     name: Name
 }
