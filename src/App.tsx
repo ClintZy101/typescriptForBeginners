@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './App.css';
+import APIComponent from './components/API/APIComponent';
 import { Private } from './components/auth/Private';
 import { Profile } from './components/auth/Profile';
 import { Button } from './components/Button';
@@ -14,6 +15,7 @@ import { ThemeContextProvider } from './components/context/ThemeContext';
 import { User } from './components/context/User';
 import { UserContextProvider } from './components/context/UserContext';
 import { Counter } from './components/Counter';
+import { List } from './components/generics/List';
 import { Greet } from './components/Greet';
 import { Heading } from './components/Heading';
 import { Input } from './components/Input';
@@ -38,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      <APIComponent />
       <Greet name={greetData.name} messageCount={greetData.messageCount} isLoggedIn={greetData.isLoggedIn} />
       <Person name={personData.name} />
       <PersonList names={namelist} />
@@ -62,14 +65,16 @@ function App() {
         <User name={userData.name} email={userData.email} />
       </UserContextProvider>
 
-      <FamilyContextProvider>
+      {/* <FamilyContextProvider>
         <Family />
-      </FamilyContextProvider>
+      </FamilyContextProvider> */}
 
     <DomRef />
     {/* <MutableRef /> */}
     <ClassCounter message='The Count value is:' />
     <Private isLoggedIn={true} component={Profile} />
+    <List items={['table','cup','spoon']} onClick={(item)=> console.log(item)} />
+    
     </div>
   );
 }
