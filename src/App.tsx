@@ -18,6 +18,8 @@ import { Counter } from './components/Counter';
 import { List } from './components/generics/List';
 import { Greet } from './components/Greet';
 import { Heading } from './components/Heading';
+import Person1 from './components/HOC/Person1';
+import Person2 from './components/HOC/Person2';
 import { Input } from './components/Input';
 import { Person } from './components/Person';
 import { PersonalMessage } from './components/PersonalMessage';
@@ -40,7 +42,10 @@ function App() {
 
   return (
     <div className="App">
+
       <APIComponent />
+      <Person1 />
+      <Person2 />
       <Greet name={greetData.name} messageCount={greetData.messageCount} isLoggedIn={greetData.isLoggedIn} />
       <Person name={personData.name} />
       <PersonList names={namelist} />
