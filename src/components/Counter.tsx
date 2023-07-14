@@ -1,3 +1,5 @@
+// For folder structure separate the types into one file under another folder including the file for component
+
 import { FC, useReducer } from "react"
 
 type CounterState = {

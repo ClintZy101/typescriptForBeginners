@@ -26,7 +26,7 @@ export const useFetch = (url: string) => {
         setIsLoading(true)
         axios
         .get(url)
-        .then((response) => setData(response.data))
+        .then((response) => {setData(response.data); console.log(data)})
         .catch((err)=> setError(err))
         .finally(()=> setIsLoading(false))
     },[url]);
