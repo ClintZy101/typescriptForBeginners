@@ -22,14 +22,17 @@ import { Greet } from './components/Greet';
 import { Heading } from './components/Heading';
 import Person1 from './components/HOC/Person1';
 import Person2 from './components/HOC/Person2';
+import { CustomButton } from './components/HTMLElementWrapping/Button';
 import { Input } from './components/Input';
 import { Person } from './components/Person';
 import { PersonalMessage } from './components/PersonalMessage';
 import { PersonList } from './components/PersonList';
+import { Text } from './components/polymorphic/Text';
 import { DomRef } from './components/ref/DomRef';
 import { MutableRef } from './components/ref/MutableRef';
 import { RandomNumber } from './components/RestrictingProps/RandomNumber';
 import { Status } from './components/Status';
+import Toast from './components/TemplateLiterals/Toast';
 import { greetData, namelist, personData, userData } from './data/data'
 
 
@@ -53,6 +56,17 @@ function App() {
 
 // This select is a "Movie" type, so the value will be "Movie" and only "Movie"
       <GenericSelect<Movie> onChange={(value) => console.log(value.releaseDate)} values={movies} /> */}
+     <CustomButton variant='primary' onClick={()=>console.log('click')}> Primary Button </CustomButton>
+    
+    <div> 
+    <Text as='h1' size='lg'>Heading</Text>
+    <Text as='p' size='md'>Body</Text>
+    <Text as='label' htmlFor='someId' size='sm' color='secondary'>Label</Text>
+    </div>
+     
+
+      <Toast position='center' />
+
       <RandomNumber value={10} isNegative />
 
       <List
