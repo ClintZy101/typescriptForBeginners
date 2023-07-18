@@ -8,13 +8,13 @@ type TextOwnProps<E extends React.ElementType> = {
     as?: E
 }
 
-type TextProps<E extends React.ElementType> = TextOwnProps<E> & Omit< React.ComponentProps<E>, keyof TextOwnProps<E>>
+type TextProps<E extends React.ElementType> = TextOwnProps<E> & Omit<React.ComponentProps<E>, keyof TextOwnProps<E>>
 
-export const Text = <E extends React.ElementType = 'div'> ({size, color, children, as}: TextProps<E>) => {
-    
+export const Text = <E extends React.ElementType = 'div'>({ size, color, children, as }: TextProps<E>) => {
+
     const Component = as || 'div'
 
-  return (
-    <Component className={`class-with-${size}-${color}`}>{children}</Component>
-  )
+    return (
+        <Component className={`class-with-${size}-${color}`}>{children}</Component>
+    )
 }
